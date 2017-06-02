@@ -27,6 +27,15 @@ If you want to use the oled display, there are some components that you can remo
 * Ja to Jg are shorted  
 * Short, on the back side of the front pcb, the pins that have some soldermask free pads arround, with the pads.
 
+### Buzzer
+Q20 and D17 are needed only if a DC active buzzer (internal oscillator) is used. The one provided in BOM, however, needs them.
+
+## Software, programming the PIC
+There are two alternatives for the PIC32 firmware
+* Using the firmware without bootloader, loading it directly with a PicKit
+* Using the firmware with bootloader, loading the bootloader with the PicKit and the firmware via usb and UniSolder's PC software.
+To me is unclear what are the advantages of picking one choice over the other, i have to ask the author to clarify. 
+
 ## Equivalent parts in bom
 Some parts are not really easy to find. Some of them can be substituted easily
 
@@ -108,4 +117,4 @@ This is just an RJ11 vertical connector. I found that Molex 95522-2667 fits perf
 
 
 
-~~Currently i'm on page 11 of the topic. This is just a reminder for myself, ignore it~~
+~~Currently i'm on page 18 of the topic. This is just a reminder for myself, ignore it~~
