@@ -119,4 +119,4 @@ This is just an RJ11 vertical connector. I found that Molex 95522-2667 fits perf
 
 
 
-~~Currently i'm on page 18 of the topic. This is just a reminder for myself, ignore it~~
+~~Currently i'm on page 22 of the topic. This is just a reminder for myself, ignore it~~
