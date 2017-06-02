@@ -34,7 +34,9 @@ Q20 and D17 are needed only if a DC active buzzer (internal oscillator) is used.
 There are two alternatives for the PIC32 firmware
 * Using the firmware without bootloader, loading it directly with a PicKit
 * Using the firmware with bootloader, loading the bootloader with the PicKit and the firmware via usb and UniSolder's PC software.
-To me is unclear what are the advantages of picking one choice over the other, i have to ask the author to clarify. 
+To me is unclear what are the advantages of picking one choice over the other, i have to ask the author to clarify.
+
+If you don't have a pickit and don't want to get one, you can use an arduino as here http://www.microchip.com/forums/m653443.aspx. I've not tried this solution personally, so i don't know if it works. Let me know if you try this.
 
 ## Equivalent parts in bom
 Some parts are not really easy to find. Some of them can be substituted easily
