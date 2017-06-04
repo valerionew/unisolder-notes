@@ -30,6 +30,10 @@ If you want to use the oled display, there are some components that you can remo
 ### Buzzer
 Q20 and D17 are needed only if a DC active buzzer (internal oscillator) is used. The one provided in BOM, however, needs them.
 
+### Sleep sensor  
+The author of the project has provided also a sensor module, based on an IR system, to detect whether the iron is in its holder.  
+You can use whatever system you want: a mechaincal switch, a reed switch, an hall sensor... You can use any switch or any other device that shorts SLEEP to GND when the tool is in the holder. SLEEP is connected to a 3.3v pullup resistor.
+
 ## Software, programming the PIC
 There are two alternatives for the PIC32 firmware
 * Using the firmware without bootloader, loading it directly with a PicKit
@@ -37,6 +41,9 @@ There are two alternatives for the PIC32 firmware
 To me is unclear what are the advantages of picking one choice over the other, i have to ask the author to clarify.
 
 If you don't have a pickit and don't want to get one, you can use an arduino as here http://www.microchip.com/forums/m653443.aspx. I've not tried this solution personally, so i don't know if it works. Let me know if you try this.
+
+To load the firmware with a PicKit you will have to use MPLAB X, microchip's software
+
 
 ## Equivalent parts in bom
 Some parts are not really easy to find. Some of them can be substituted easily
@@ -64,6 +71,14 @@ I've ordered 3314J-1-202E, not mounted yet. It seems it can fit, but i'm not sur
 Either the LM2675M-3.3 and the LM2675M-ADJ version can be used.  
 If **LM2675M-3.3** is used, R3 has to be 0 (shorted) and R4 has to be 1.5k.  
 If **LM2675M-ADJ** is used, R3 has to be 3k and R4 has to be 1.8k.  
+
+### U10 MCP4651-503 (50k)
+This part seems hard to find. You can replace it with the MCP4651-104 (100k) version. You can **NOT** use the 103 (10k) version.  
+**Beware that this part is different from U15**, they have a similar code but with the 5 and the 6 switched. 
+
+### U15 MCP4561-503 (50k)
+This part (as before) seems hard to find. You can replace it with the MCP4651-104 (100k) version. You can **NOT** use the 103 (10k) version.  
+**Beware that this part is different from U10**, they have a similar code but with the 5 and the 6 switched.
 
 ### U6 REF303
 This part seems harder to find than the others. 
@@ -119,4 +134,4 @@ This is just an RJ11 vertical connector. I found that Molex 95522-2667 fits perf
 
 
 
-~~Currently i'm on page 22 of the topic. This is just a reminder for myself, ignore it~~
+~~Currently i'm on page 26 of the topic. This is just a reminder for myself, ignore it~~
