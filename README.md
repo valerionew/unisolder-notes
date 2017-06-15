@@ -34,6 +34,19 @@ Q20 and D17 are needed only if a DC active buzzer (internal oscillator) is used.
 The author of the project has provided also a sensor module, based on an IR system, to detect whether the iron is in its holder.  
 You can use whatever system you want: a mechaincal switch, a reed switch, an hall sensor... You can use any switch or any other device that shorts SLEEP to GND when the tool is in the holder. SLEEP is connected to a 3.3v pullup resistor.
 
+### Calibration 
+The author of the project recommens, if needed, to calibrate the temperature of the iron with Sn63/Pb37 solder, which melts at 183°C. 
+You shouldn't need to calibrate your iron, do it only if it's needed.
+
+### Iron ID resistors
+The station can automatically recognise the instrument you attach to it. To do this, you will need a resistor in the iron connector, so that the system can read it when a new instrument is plugged. If you don't want to switch between instruments, you can simply connect the resistor to the station connector instead of the iron connector. 
+ID resistors must be not less than 1% tolerance
+
+| ID resistor table is not | ready yet |
+|--------------------------|-----------|
+|                          |           |
+|                          |           |
+
 ## Software, programming the PIC
 There are two alternatives for the PIC32 firmware
 * Using the firmware without bootloader, loading it directly with a PicKit
@@ -53,6 +66,9 @@ Some parts are not really easy to find. Some of them can be substituted easily
 If you use **0.003** ohm shunt, R37 and R42 have to be both **1.5k** 0.1%.  
 If you use **0.004** ohm shunt, R37 and R42 have to be both **2.0k** 0.1%.  
 
+### Ra to Rg 47ohm
+Those resistors are not needed if you are going to use the OLED screen. You will need to short their pads with solder or use 0ohm resistors.
+
 ### 3v and 3.0v zener diodes
 Despite the different name in the BOM, the same part can be used for both.
 
@@ -70,15 +86,19 @@ I've ordered 3314J-1-202E, not mounted yet. It seems it can fit, but i'm not sur
 ### U1 LM2675, R3 and R4
 Either the LM2675M-3.3 and the LM2675M-ADJ version can be used.  
 If **LM2675M-3.3** is used, R3 has to be 0 (shorted) and R4 has to be 1.5k.  
-If **LM2675M-ADJ** is used, R3 has to be 3k and R4 has to be 1.8k.  
+If **LM2675M-ADJ** is used, R3 has to be 3k and R4 has to be 1.8k. 
+LM2674 can be used too.
+
+### U9 ULN2003L
+You don't need this IC if you are going to use the OLED display.
 
 ### U10 MCP4651-503 (50k)
 This part seems hard to find. You can replace it with the MCP4651-104 (100k) version. You can **NOT** use the 103 (10k) version.  
-**Beware that this part is different from U15**, they have a similar code but with the 5 and the 6 switched. 
+**Beware that this part is different from U15 below**, they have a similar code but with the 5 and the 6 switched. 
 
 ### U15 MCP4561-503 (50k)
 This part (as before) seems hard to find. You can replace it with the MCP4651-104 (100k) version. You can **NOT** use the 103 (10k) version.  
-**Beware that this part is different from U10**, they have a similar code but with the 5 and the 6 switched.
+**Beware that this part is different from U10 above**, they have a similar code but with the 5 and the 6 switched.
 
 ### U6 REF303
 This part seems harder to find than the others. 
@@ -87,8 +107,34 @@ This part seems harder to find than the others.
 ### U14 LM4041CIM3-1.2
 Can be substituted with LM4051AEM3-1.2
 
+### U12, U13, U18 MCP6V27
+This part can be substituted with:
+* MCP6V02
+* MCP6V07
+
+### U17 MCP6V03
+This part can be substituted with:
+* MCP6V01
+* MCP6V06
+* MCP6V08
+* MCP6V26
+* MCP6V28
+
+
 ### Q2 SUD50P10
 Can be substituted with SQD50P08
+
+### Q10, Q11 IPD053N08
+To substitute this part the important parameters are: 
+Vds(max) should be at least 75V. 
+Rds(on) should be no more than 0.01ohm.
+AUIRFR3607 or IPD12CN10NGATMA1 can do the job.
+
+### Q15 IRLML6401
+This part should not be installed when using the OLED display
+
+### Q17 IRLML2502
+This part should not be installed when using the OLED display
 
 
 
@@ -125,7 +171,12 @@ Crimp pin: MOLEX 008550102 2759-(555)L
 PCB connector: MOLEX 022292031 AE-6410-03A(241)  
 
 * **J5** RJ11v  
-This is just an RJ11 vertical connector. I found that Molex 95522-2667 fits perfectly.   
+This is just an RJ11 vertical connector. I found that Molex 95522-2667 fits perfectly.  
+
+
+
+### JBC T245
+The matching socket for this iron, if you want to keep the original plug, is the Hirose RPC1-12RB-6P(71)
 
 
 
@@ -134,4 +185,4 @@ This is just an RJ11 vertical connector. I found that Molex 95522-2667 fits perf
 
 
 
-~~Currently i'm on page 26 of the topic. This is just a reminder for myself, ignore it~~
+~~Currently i'm on page 32 of the topic. This is just a reminder for myself, ignore it~~
