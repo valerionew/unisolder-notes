@@ -11,10 +11,11 @@ No hot air or reflow oven si required, it can be soldered by hand and soldering 
 Sparkybg reccomends BGA no-clean flux.  
 **ATTENTION** there are some resistor pairs that can be mounted in the wrong direction. All the mentioned couples have to be mounted with the long side according to the long side of the front board. Those are the couples that require special attention during the mounting:
 * R27 and R28
-* R63 and R65, double and triple check this pair
+* R63 and R65, double and triple check this pair, it's very common to have these wrong. If you do probably you will get error 13.
 * R30 and R31
 * R35 and R39
 * R25 and R26
+* C60 and R46 
 Please check <a href="http://dangerousprototypes.com/forum/download/file.php?id=11712&mode=view" target="_blank">the image provided by the author </a> if you have any doubt about mounting or component orientation.
 
 
@@ -37,6 +38,7 @@ If you want to use the oled display, there are some components that you can remo
 
 ### Buzzer
 Q20 and D17 are needed only if a DC active buzzer (internal oscillator) is used. The one specified in BOM, however, does not need them.
+Unfortunately for now the DC buzzers are not supported by the firmware.
 
 ### Sleep sensor  
 The author of the project has provided also a sensor module, based on an IR system, to detect whether the iron is in its holder.  
@@ -61,7 +63,8 @@ There are two alternatives for the PIC32 firmware
 * Using the firmware with bootloader, loading the bootloader with the PicKit and the firmware via usb and UniSolder's PC software.
 To me is unclear what are the advantages of picking one choice over the other, i have to ask the author to clarify.
 
-If you don't have a pickit and don't want to get one, you can use an arduino as here http://www.microchip.com/forums/m653443.aspx. I've not tried this solution personally, so i don't know if it works. Let me know if you try this.
+If you don't have a pickit and don't want to get one, you can use an arduino as here http://www.microchip.com/forums/m653443.aspx. I've not tried this solution personally, so i don't know if it works. Let me know if you try this.  
+You can also use [pic32prog](https://github.com/sergev/pic32prog) from sergev, if you have a pickit 2 and want to program the microcontroller. 
 
 To load the firmware with a PicKit you will have to use MPLAB X, microchip's software
 
@@ -193,4 +196,4 @@ The matching socket for this iron, if you want to keep the original plug, is the
 
 
 
-~~Currently i'm on page 32 of the topic. This is just a reminder for myself, ignore it~~
+~~Currently i'm on page 44 of the topic. This is just a reminder for myself, ignore it~~
