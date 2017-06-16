@@ -1,5 +1,5 @@
 # unisolder-notes
-Just a set of notes for anyone who is trying to build his unisolder controller.
+Just a set of notes for anyone who is trying to build his own unisolder controller.
 It is intented to be a personal recap of the original topic on dangerousprototypes.com forum.  
 If you are reading this after i finished my project (so you are in the future, WOAH!), probably i'm not updating this document anymore. If it was useful to you, please help to keep it updated, by modifying the document and making a Pull Request. The community will thank you.  
 **I'm currently building this project, and this page is a work in progress, so the info may be unaccurate and untested. No warranty is given.**
