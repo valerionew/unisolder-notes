@@ -8,7 +8,15 @@ If you are reading this after i finished my project (so you are in the future, W
 
 ### Soldering and mounting
 No hot air or reflow oven si required, it can be soldered by hand and soldering iron.  
-Sparkybg reccomends BGA no-clean flux.
+Sparkybg reccomends BGA no-clean flux.  
+**ATTENTION** there are some resistor pairs that can be mounted in the wrong direction. All the mentioned couples have to be mounted with the long side according to the long side of the front board. Those are the couples that require special attention during the mounting:
+* R27 and R28
+* R63 and R65, double and triple check this pair
+* R30 and R31
+* R35 and R39
+* R25 and R26
+Please check <a href="http://dangerousprototypes.com/forum/download/file.php?id=11712&mode=view" target="_blank">the image provided by the author </a> if you have any doubt about mounting or component orientation.
+
 
 ### Configuration resistors
 There are some configuration resistors, please make sure to pick the correct values for your application. Those are listed in the *Equivalent parts in bom* section of this document.
@@ -28,7 +36,7 @@ If you want to use the oled display, there are some components that you can remo
 * Short, on the back side of the front pcb, the pins that have some soldermask free pads arround, with the pads.
 
 ### Buzzer
-Q20 and D17 are needed only if a DC active buzzer (internal oscillator) is used. The one provided in BOM, however, needs them.
+Q20 and D17 are needed only if a DC active buzzer (internal oscillator) is used. The one specified in BOM, however, does not need them.
 
 ### Sleep sensor  
 The author of the project has provided also a sensor module, based on an IR system, to detect whether the iron is in its holder.  
