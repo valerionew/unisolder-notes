@@ -50,12 +50,18 @@ You shouldn't need to calibrate your iron, do it only if it's needed.
 
 ### Iron ID resistors
 The station can automatically recognise the instrument you attach to it. To do this, you will need a resistor in the iron connector, so that the system can read it when a new instrument is plugged. If you don't want to switch between instruments, you can simply connect the resistor to the station connector instead of the iron connector. 
-ID resistors must be not less than 1% tolerance
+ID resistors must be not less than 1% tolerance.
+We will call Rid1 the resistor that goes between ID and Vout1-, and Rid2 the resistor that goes between ID and Vout2-
 
-| ID resistor table is not | ready yet |
-|--------------------------|-----------|
-|                          |           |
-|                          |           |
+|    Soldering iron model  |   Rid1  |   Rid2  |
+|--------------------------|---------|---------|
+|     HAKKO T12            |   1k    |  5.6k   |
+| HAKKO FX8801, HAKKO 907  |   1k    |  820    |
+| JBC C245                 |   150   |  5.6k   |
+| JBC C210                 |   3k    |  5.6k   |
+| JBC Microtweezers        |   1k    |   //    |
+| WELLER WSP80             |   120   |  5.6k   |
+| ERSA RT80                |   300   |  110    |
 
 ## Software, programming the PIC
 There are two alternatives for the PIC32 firmware
