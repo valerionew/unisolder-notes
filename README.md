@@ -70,10 +70,12 @@ There are two alternatives for the PIC32 firmware
 To me is unclear what are the advantages of picking one choice over the other, i have to ask the author to clarify.
 
 If you don't have a pickit and don't want to get one, you can use an arduino as here http://www.microchip.com/forums/m653443.aspx. I've not tried this solution personally, so i don't know if it works. Let me know if you try this.  
-You can also use [pic32prog](https://github.com/sergev/pic32prog) from sergev, if you have a pickit 2 and want to program the microcontroller. 
+You can also use [pic32prog](https://github.com/sergev/pic32prog) from sergev, if you have a pickit 2 and want to program the microcontroller.  
+To load the firmware with a PicKit you will have to use MPLAB X, microchip's software.  
+As zed65 stated in the forum: "You can NOT program the PIC via the PicKit2/3 standalone programming software. You have to put the programmer into MPLab mode in the standalone software then program it via MPLab."
 
-To load the firmware with a PicKit you will have to use MPLAB X, microchip's software
-
+#### Modify the software
+If you want to modify the software you'll have to compile it with XC32 v1.33 compiler, adding the "s" option to the optimization.
 
 ## Equivalent parts in bom
 Some parts are not really easy to find. Some of them can be substituted easily
@@ -93,12 +95,21 @@ Despite the different name in the BOM, the same part can be used for both.
 This resistor is in a 2512 format, 10M, it is there to prevent huge electrical potentials between the computer's ground and the station's ground.  
 You can use any value between 1M and 10M, or leave it disconnected if you feel safe, anyway this isn't recommended.
 
-### Q10, Q11: IPD053N08
-If you want to change this part, pick a part which has same: package, Rds(on), Vds, and gate threshold voltage.
+### Capacitors
+For the ceramic capacitors insulator type, C0G is the best, X7R is also good. X5R is not as good as X7R. If it's possible avoid Y5V. 
+Where voltage is not specified you can pick any voltage. 50V is better (their actual capacity will be closer to the nominal value at low voltages than 100V or more).
+
+
 
 ### Rc2 Bourns trimmer
 In BOM it's indicated as Bourns 3362, this part is a THT trimmer from a previous version, correct part number is Bourns 3364X-1-202E.  
 I've ordered 3314J-1-202E, not mounted yet. It seems it can fit, but i'm not sure yet. 
+
+
+### Q10, Q11: IPD053N08
+If you want to change this part, pick a part which has same: package, Rds(on), Vds, and gate threshold voltage.
+
+
 
 ### U1 LM2675, R3 and R4
 Either the LM2675M-3.3 and the LM2675M-ADJ version can be used.  
@@ -202,4 +213,4 @@ The matching socket for this iron, if you want to keep the original plug, is the
 
 
 
-~~Currently i'm on page 44 of the topic. This is just a reminder for myself, ignore it~~
+~~Currently i'm on page 57 of the topic. This is just a reminder for myself, ignore it~~
