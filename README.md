@@ -28,10 +28,10 @@ A **toroidal** transformer is recommended: **24V 120VA.**
 Although this is not fully recommended you can use a 24V DC supply, because of grounding difficulties in switching PSUs. There are two power input ports on the *"back"* pcb. One is for AC, the other is for DC.
 
 ### OLED display configuration
-The project is capable of using either a 7 segment display or an oled display.  
-If you want to use the oled display, there are some components that you can remove from the BOM and some pads to short.
+At an early stage of the project the author was planning to implement both the 7 segment display and the OLED display. The 7 segment option was never implemented, and the compatibility was removed. 
+There are some components that you'll have to remove from the BOM and some pads to short.
 * Ensure to get a SSD1306 128x64 oled. 
-* Q15, Q17 and UL2003N are not needed.
+* Q15, Q17 and U9 (UL2003N) are not needed.
 * Ra to Rg are shorted 
 * Ja to Jg are shorted  
 * Short, on the back side of the front pcb, the pins that have some soldermask free pads arround, with the pads.
@@ -86,7 +86,7 @@ If you use **0.003** ohm shunt, R37 and R42 have to be both **1.5k** 0.1%.
 If you use **0.004** ohm shunt, R37 and R42 have to be both **2.0k** 0.1%.  
 
 ### Ra to Rg 47ohm
-Those resistors are not needed if you are going to use the OLED screen. You will need to short their pads with solder or use 0ohm resistors.
+Those resistors are not needed. You will need to short their pads with solder or use zero ohm resistors.
 
 ### 3v and 3.0v zener diodes
 Despite the different name in the BOM, the same part can be used for both.
@@ -99,7 +99,11 @@ You can use any value between 1M and 10M, or leave it disconnected if you feel s
 For the ceramic capacitors insulator type, C0G is the best, X7R is also good. X5R is not as good as X7R. If it's possible avoid Y5V. 
 Where voltage is not specified you can pick any voltage. 50V is better (their actual capacity will be closer to the nominal value at low voltages than 100V or more).
 
+### Diodes
+Please note that many times with diodes there is the same part from a different manifacturer listed with the first two letters 
 
+### D1, D2, D3, D4 SR580
+This part can be substituted with SB5100 or other Schottky Rectifiers with at least 5A current capability and at least 80V forward voltage. However the 80V part is still preferable, because it will have less forward drop. The package is DO-201.
 
 ### Rc2 Bourns trimmer
 In BOM it's indicated as Bourns 3362, this part is a THT trimmer from a previous version, correct part number is Bourns 3364X-1-202E.  
@@ -118,7 +122,7 @@ If **LM2675M-ADJ** is used, R3 has to be 3k and R4 has to be 1.8k.
 LM2674 can be used too.
 
 ### U9 ULN2003L
-You don't need this IC if you are going to use the OLED display.
+You don't need this IC, this was only for the 7-seg version. 
 
 ### U10 MCP4651-503 (50k)
 This part seems hard to find. You can replace it with the MCP4651-104 (100k) version. You can **NOT** use the 103 (10k) version.  
