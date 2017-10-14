@@ -217,4 +217,4 @@ The matching socket for this iron, if you want to keep the original plug, is the
 
 
 
-~~Currently i'm on page 57 of the topic. This is just a reminder for myself, ignore it~~
+~~Currently i'm on page 60 of the topic. This is just a reminder for myself, ignore it~~
