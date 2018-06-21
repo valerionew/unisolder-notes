@@ -35,7 +35,7 @@ There are some components that you'll have to remove from the BOM and some pads 
 * Ra to Rg are shorted 
 * Ja to Jg are shorted  
 * Short, on the back side of the front pcb, the pins that have some soldermask free pads arround, with the pads.
-* See the [U19 FAN5331 section](#u19-fan5331) in this document, for picking the correct boost feedback resistor. 
+* See the [U19 FAN5331 section](#u19-fan5331,-r68) in this document, for picking the correct boost feedback resistor. 
 
 ### Buzzer
 Q20 and D17 are needed only if a DC active buzzer (internal oscillator) is used. The one specified in BOM, however, does not need them.
@@ -156,11 +156,11 @@ This part can be substituted with FAN5333A or FAN5333B. Please note that either 
 
 Follows a table with values that should suit. These values are not tested (FAN5333B with 9V display is tested by me and working), proceed with caution and check the voltage prior to soldering the OLED.
 
-| IC       | R68 for 9V display | R68 for 12V display |
-|----------|--------------------|---------------------|
-| FAN5331  | 4.7k               | 3k                  |
-| FAN5333A | 340                | 249                 |
-| FAN5333B | 1k                 | 732                 |
+| IC               | R68 for 9V display | R68 for 12V display |
+|------------------|--------------------|---------------------|
+| FAN5331 (1.23V)  | 4.7k               | 3k                  |
+| FAN5333A (0.11V) | 340                | 249                 |
+| FAN5333B (0.31V) | 1k                 | 732                 |
 
 ### Q2 SUD50P10
 Can be substituted with SQD50P08
