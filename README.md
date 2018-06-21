@@ -158,9 +158,9 @@ Follows a table with values that should suit. These values are not tested (FAN53
 
 | IC               | R68 for 9V display | R68 for 12V display |
 |------------------|--------------------|---------------------|
-| FAN5331 (1.23V)  | 4.7k               | 3k                  |
-| FAN5333A (0.11V) | 340                | 249                 |
-| FAN5333B (0.31V) | 1k                 | 732                 |
+| FAN5331 (1.230V)  | 4.7k               | 3k                  |
+| FAN5333A (0.110V) | 340                | 249                 |
+| FAN5333B (0.315V) | 1k                 | 732                 |
 
 ### Q2 SUD50P10
 Can be substituted with SQD50P08
