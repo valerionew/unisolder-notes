@@ -157,7 +157,7 @@ This part can be substituted with:
 * MCP6V28
 
 ### U19 FAN5331, R68
-This part can be substituted with FAN5333A or FAN5333B. Please note that either version of FAN5333 have a different feedback voltage from each other and from the FAN5331. This part is the boost converter for the OLED display. Different OLED displays need different voltages. Usually they can be either 9V or 12V. Check the voltage of your OLED and select R68 accordingly. R68 should be at least 1%.
+This part can be substituted with LM2731, FAN5333A or FAN5333B. Please note that either version of FAN5333 have a different feedback voltage from each other and from the FAN5331. LM2731 has the same feedback voltage. This part is the boost converter for the OLED display. Different OLED displays need different voltages. Usually they can be either 9V or 12V. Check the voltage of your OLED and select R68 accordingly. R68 should be at least 1%.
 
 Follows a table with values that should suit. These values are not tested (FAN5333B with 9V display is tested by me and working), proceed with caution and check the voltage prior to soldering the OLED.
 
