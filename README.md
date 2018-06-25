@@ -19,6 +19,8 @@ Sparkybg reccomends BGA no-clean flux. I personally use a felt tip regular flux 
 
 Please check <a href="http://dangerousprototypes.com/forum/download/file.php?id=11712&mode=view" target="_blank">the image provided by the author </a> if you have any doubt about mounting or component orientation.
 
+Also, this interactive pcb map by Bug82 is very usefull while mounting: [unisolder-chips](http://dangerousprototypes.com/forum/download/file.php?id=12034)
+
 
 ### Configuration resistors
 There are some configuration resistors, please make sure to pick the correct values for your application. Those are listed in the [*Equivalent parts in bom*](#equivalent-parts-in-bom) section of this document.
@@ -53,8 +55,8 @@ The author of the project has provided also a sensor module, based on an IR syst
 You can use whatever system you want: a mechaincal switch, a reed switch, an hall sensor... You can use any switch or any other device that shorts SLEEP to GND when the tool is in the holder. SLEEP is connected to a 3.3v pullup resistor.
 
 ### Calibration 
-The author of the project recommens, if needed, to calibrate the temperature of the iron with Sn63/Pb37 solder, which melts at 183°C. 
-You shouldn't need to calibrate your iron, do it only if it's needed.
+You'll need to calibrate the controller by connecting a very precise 10 ohm resistor (0.1% is reccomended) between SENSEA and Vout1-.  
+Go to the Calibration submenu and turn the trimmer until R shows as close as possible to 100 times the resistor. If the trimmer doesn't get you to the value, try replacing R57 and R59 (one by one) with next higher and next lower value (1.8k, 1.3k).
 
 ### Iron ID resistors
 The station can automatically recognise the instrument you attach to it. To do this, you will need a resistor pair in the iron connector, so that the system can read it when a new instrument is plugged. If you don't want to switch between instruments, you can simply connect the resistor to the station connector instead of the iron connector. 
@@ -122,6 +124,34 @@ Please note that many times with diodes there is the same part from a different 
 SR580 means "Schottky rectifier, 5A, 80V". There's nothing special about these diodes. Just use 5A 80V Schottky in a DO-201 package.  
 This part can be substituted with SB5100 or other Schottky Rectifiers with at least 5A current capability and at least 80V forward voltage. However the 80V part is still preferable, because it will have less forward drop.  
 
+### D5, D8, D10, D14, D15	BAT46WH
+Alternative parts:
+* BAT46WH 
+
+### D6, D7, D12	SS310A
+SS310A means 3A, 100V schottky. Any Schottky with the same ratings will do. For example:
+* SK310SMA 
+
+### D9, D11, D13	1N4007
+Alternative parts:
+* GF1M
+
+### D18, D19	MMBD1505A
+If replacing this part, beware that the reverse leakage current is very important and should be as low as possible.
+
+### D22	SS34A
+SS34A means 3A, 40V schottky. Any Schottky with the same ratings will do. For example:
+* SK34SMA 
+* SS34FA
+
+## D16, D17, D20, D21	BAV199
+This part is common with a suffix, such as "BAV199,215". It is the same part.
+
+## TVS1 60V TVS
+60V TVS is just a 60V TVS. Any 60V TVS ot close to this will do. For example:
+* 1.5KE62A
+
+
 ### Rc2 Bourns trimmer
 In BOM it's indicated as Bourns 3362, this part is a THT trimmer from a previous version, correct part number is **Bourns 3364X-1-202E.**  
 I'm using a **Bourns 3314J-1-202E** which also fits well. 
@@ -155,7 +185,7 @@ This part seems harder to find than the others. These are some of the possible a
 * MAX6035AAUR30 may work, not personally tested.
 
 ### U14 LM4041CIM3-1.2
-Can be substituted with LM4051AEM3-1.2
+Can be substituted with **LM4051AEM3-1.2**
 
 ### U12, U13, U18 MCP6V27
 This part can be substituted with:
@@ -181,15 +211,16 @@ Follows a table with values that should suit. These values are not tested (FAN53
 | FAN5333A (0.110V) | 340                | 249                 |
 | FAN5333B (0.315V) | 1k                 | 732                 |
 
-### Q2 SUD50P10
-Can be substituted with SQD50P08
+### Q2, Q8 SUD50P10
+Can be substituted with **SQD50P08**
 
 ### Q10, Q11 IPD053N08
+**AUIRFR3607** or **IPD12CN10NGATMA1** can do the job.
+
 To substitute this part the important parameters are: 
 * Vds(max) should be at least 75V. 
 * Rds(on) should be no more than 0.01ohm.
 
-AUIRFR3607 or IPD12CN10NGATMA1 can do the job.
 
 ### Q15 IRLML6401
 This part should not be installed when using the OLED display
@@ -245,4 +276,4 @@ Plug: **LUMBERG 0332 08-1**
 
 
 
-~~Currently i'm on page 78 of the topic. This is just a reminder for myself, ignore it~~
+~~Currently i'm on page 100 of the topic. This is just a reminder for myself, ignore it~~
