@@ -37,7 +37,7 @@ Also, proceed with caution with the ground clip lead if troubleshooting the boar
 ### OLED display configuration
 At an early stage of the project the author was planning to implement both the 7 segment display and the OLED display. The 7 segment option was never implemented, and the compatibility was removed. 
 There are some components that you'll have to remove from the BOM and some pads to short.
-* Ensure to get a SSD1306 128x64 oled. 
+* Ensure to get a SSD1306 128x64 oled. It is mainly available in a 0.96" size. However, user SZ64 from the forum was able to get a 1.3" display (**UG-2864KSWLG01**) and confirmed that it is pin to pin compatible, and needs 12V. 
 * Q15, Q17 and U9 (UL2003N) are not needed.
 * Ra to Rg are shorted 
 * Ja to Jg are shorted  
