@@ -29,6 +29,11 @@ A **toroidal** transformer is recommended: **24V 120VA.**
 Although this is not fully recommended (because of grounding difficulties in switching PSUs) you can use a 24V DC supply.  
 There are two power input ports on the *"back"* pcb. One is for AC, the other is for DC.
 
+### Earthing
+The controller should not be earthed in any way, except for the iron tip. In many cases the earth of the tip differs from the ground of the controller. For this reason, is not possible to use the tip earth connection to send the sleep/stand signal (see [Sleep sensor](#sleep-sensor) section of this document. SLEEP pin should never be connected directly to the iron tip.  
+Also, proceed with caution with the ground clip lead if troubleshooting the board with an oscilloscopoe. Disconnect the system from main's earth before attaching the clip to board ground.
+
+
 ### OLED display configuration
 At an early stage of the project the author was planning to implement both the 7 segment display and the OLED display. The 7 segment option was never implemented, and the compatibility was removed. 
 There are some components that you'll have to remove from the BOM and some pads to short.
@@ -80,6 +85,9 @@ As zed65 stated in the forum: "You can NOT program the PIC via the PicKit2/3 sta
 
 #### Modify the software
 If you want to modify the software you'll have to compile it with XC32 v1.33 compiler (**paid**), adding the "s" option to the optimization.
+
+#### Testing the bootloader
+To test if the bootloader loading went ok, hold down keys "+" and "-" during power up. If some moving squares appear on the screen, the bootloader is working. 
 
 ## Equivalent parts in bom
 Some parts are not really easy to find. Some of them can be easily substituted with equivalent parts.
@@ -136,9 +144,12 @@ This part seems hard to find. You can replace it with the MCP4651-104 (100k) ver
 This part (as before) seems hard to find. You can replace it with the MCP4651-104 (100k) version. You can **NOT** use the 103 (10k) version.  
 **Beware that this part is different from U10 above**, they have a similar code but with the 5 and the 6 switched.
 
-### U6 REF303
-This part seems harder to find than the others. 
-* MAX6035AAUR30 may work, not personally tested
+### U6 REF3030
+This part seems harder to find than the others. These are some of the possible alternatives:
+* MAX6010AEUR
+* MAX6063AEUR
+* ISL21010CFH330Z
+* MAX6035AAUR30 may work, not personally tested.
 
 ### U14 LM4041CIM3-1.2
 Can be substituted with LM4051AEM3-1.2
@@ -231,4 +242,4 @@ Plug: **LUMBERG 0332 08-1**
 
 
 
-~~Currently i'm on page 60 of the topic. This is just a reminder for myself, ignore it~~
+~~Currently i'm on page 70 of the topic. This is just a reminder for myself, ignore it~~
