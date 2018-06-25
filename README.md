@@ -81,7 +81,10 @@ To me is unclear what are the advantages of picking one choice over the other, i
 If you don't have a pickit and don't want to get one, you can use an arduino as here http://www.microchip.com/forums/m653443.aspx. I've not tried this solution personally, so i don't know if it works. Let me know if you try this.  
 You can also use [pic32prog](https://github.com/sergev/pic32prog) from sergev, if you have a pickit 2 and want to program the microcontroller.  
 To load the firmware with a PicKit you will have to use MPLAB X, microchip's software.  
-As zed65 stated in the forum: "You can NOT program the PIC via the PicKit2/3 standalone programming software. You have to put the programmer into MPLab mode in the standalone software then program it via MPLab."
+As zed65 stated in the forum: "You can NOT program the PIC via the PicKit2/3 standalone programming software. You have to put the programmer into MPLab mode in the standalone software then program it via MPLab."  
+
+To attach the PicKit3 to the unisolder board chech on the PicKit for the little arrow pointing to pin 1. Connect that pin to the square pad on the unisolder board, and the rest of the pins in order. Pin 6 of the PicKit stays disconnected.  
+
 
 #### Modify the software
 If you want to modify the software you'll have to compile it with XC32 v1.33 compiler (**paid**), adding the "s" option to the optimization.
