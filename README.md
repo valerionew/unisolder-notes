@@ -147,10 +147,10 @@ SS34A means 3A, 40V schottky. Any Schottky with the same ratings will do. For ex
 * SK34SMA 
 * SS34FA
 
-## D16, D17, D20, D21	BAV199
+### D16, D17, D20, D21	BAV199
 This part is common with a suffix, such as "BAV199,215". It is the same part.
 
-## TVS1 60V TVS
+### TVS1 60V TVS
 60V TVS is just a 60V TVS. Any 60V TVS ot close to this will do. For example:
 * 1.5KE62A
 
