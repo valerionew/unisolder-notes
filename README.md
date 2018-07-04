@@ -1,4 +1,7 @@
 # unisolder-notes
+![License CC-BY-4.0](https://img.shields.io/badge/License-CC--BY--4.0-green.svg)
+<img align="right" src="/img/writing-01.png" width=250 />
+
 Just a set of notes for anyone who is trying to build his own unisolder controller.
 It is intented to be a personal recap of the [original topic on dangerousprototypes.com forum](http://dangerousprototypes.com/forum/viewtopic.php?t=7218).  
 If you are reading this after i finished my project (so you are in the future, WOAH!), probably i'm not updating this document anymore. If it was useful to you, please help to keep it updated, by modifying the document and making a Pull Request. The community will thank you.  
