@@ -177,7 +177,7 @@ This part seems hard to find. You can replace it with the MCP4651-104 (100k) ver
 **Beware that this part is different from U15 below**, they have a similar code but with the 5 and the 6 switched. 
 
 ### U15 MCP4561-503 (50k)
-This part (as before) seems hard to find. You can replace it with the MCP4651-104 (100k) version. You can **NOT** use the 103 (10k) version.  
+This part (as before) seems hard to find. You can replace it with the MCP4561-104 (100k) version. You can **NOT** use the 103 (10k) version.  
 **Beware that this part is different from U10 above**, they have a similar code but with the 5 and the 6 switched.
 
 ### U6 REF3030
