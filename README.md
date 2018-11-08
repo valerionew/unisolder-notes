@@ -186,7 +186,8 @@ This part seems harder to find than the others. These are some of the possible a
 * MAX6063AEUR
 * ISL21010CFH330Z
 * MAX6035AAUR30 may work, not personally tested.
-
+* LM4120AIM5-3.0 may work, not personally tested.
+ 
 ### U14 LM4041CIM3-1.2
 Can be substituted with **LM4051AEM3-1.2**
 
