@@ -7,6 +7,25 @@ It is intented to be a personal recap of the [original topic on dangerousprototy
 If you are reading this after i finished my project (so you are in the future, WOAH!), probably i'm not updating this document anymore. If it was useful to you, please help to keep it updated, by modifying the document and making a Pull Request. The community will thank you.  
 **I'm currently building this project, and this page is a work in progress, so the info may be unaccurate and untested. No warranty is given. Please refer to [LICENSE.md file](https://github.com/5N44P/unisolder-notes/blob/master/LICENSE.md) for all the conditions.**
 
+
+  * [General notes](#general-notes)
+    + [Soldering and mounting](#soldering-and-mounting)
+    + [Configuration resistors](#configuration-resistors)
+    + [Power supply](#power-supply)
+    + [Earthing](#earthing)
+    + [OLED display configuration](#oled-display-configuration)
+    + [Buzzer](#buzzer)
+    + [Sleep sensor](#sleep-sensor)
+    + [Calibration](#calibration)
+    + [Iron ID resistors](#iron-id-resistors)
+  * [Software and programming the PIC](#software-and-programming-the-pic)
+  * [Equivalent parts in bom](#equivalent-parts-in-bom)
+  * [Packages compatibility](#packages-compatibility)
+  * [Connectors](#connectors)
+
+<small><i><a href='http://ecotrust-canada.github.io/markdown-toc/'>Table of contents generated with markdown-toc</a></i></small>
+
+
 ## General notes
 
 ### Soldering and mounting
@@ -76,7 +95,7 @@ We will call Rid1 the resistor that goes between ID and Vout1-, and Rid2 the res
 | WELLER WSP80             |   120   |  5.6k   |
 | ERSA RT80                |   300   |  110    |
 
-## Software, programming the PIC
+## Software and programming the PIC
 There are two alternatives for the PIC32 firmware:
 * Using the firmware without bootloader, loading it directly with a PicKit
 * Using the firmware with bootloader, loading the bootloader with the PicKit and the firmware via usb and UniSolder's PC software.
