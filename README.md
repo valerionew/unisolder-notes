@@ -42,7 +42,7 @@ Also, proceed with caution with the ground clip lead if troubleshooting the boar
 ### OLED display configuration
 At an early stage of the project the author was planning to implement both the 7 segment display and the OLED display. The 7 segment option was never implemented, and the compatibility was removed. 
 There are some components that you'll have to remove from the BOM and some pads to short.
-* Ensure to get a SSD1306 128x64 oled. It is mainly available in a 0.96" size. I've used this part with success: **DD-12864WE-4A**. However, user SZ64 from the forum was able to get a 1.3" display (**UG-2864KSWLG01**) and confirmed that it is pin to pin compatible, and needs 12V. 
+* Ensure to get a SSD1306 128x64 oled. It is mainly available in a 0.96" size. I've used this part with success: **DD-12864WE-4A**. However, user SZ64 from the forum was able to get a 1.3" display (**UG-2864KSWLG01**) and confirmed that it is pin to pin compatible, and needs 12V. Users NECHTO and afedorov patched the firmware to work with SH1106 displays, patches can be found in this [forum post](http://dangerousprototypes.com/forum/viewtopic.php?f=56&t=7218&p=67042&hilit=display+SH1106#p67042) and recompiled firmware in this [other post](http://dangerousprototypes.com/forum/viewtopic.php?f=56&t=7218&start=1665#p67047).
 * Q15, Q17 and U9 (UL2003N) are not needed.
 * Ra to Rg are shorted 
 * Ja to Jg are shorted  
