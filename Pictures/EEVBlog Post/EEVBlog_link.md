@@ -1,0 +1,1 @@
+[Link to EEVBlog Post About Unisolder](https://www.eevblog.com/forum/projects/universal-soldering-controller-5-2-kit-and-general-construction-questions!/)
