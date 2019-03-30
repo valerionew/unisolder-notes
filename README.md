@@ -1,8 +1,8 @@
 # unisolder-notes
 ![License CC-BY-4.0](https://img.shields.io/badge/License-CC--BY--4.0-green.svg)
 <img align="right" src="/img/writing-01.png" width=250 />
-
-Minor modifications by ERL, primarily work of 5N44P. 
+-----------------------------------------------------
+Minor modifications by lauer2356, primarily work of 5N44P. 
 -----------------------------------------------------
 Just a set of notes for anyone who is trying to build his own unisolder controller.
 It is intented to be a personal recap of the [original topic on dangerousprototypes.com forum](http://dangerousprototypes.com/forum/viewtopic.php?t=7218).  
