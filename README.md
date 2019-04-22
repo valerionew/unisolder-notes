@@ -4,7 +4,9 @@
 
 Just a set of notes for anyone who is trying to build his own unisolder controller.
 It is intented to be a personal recap of the [original topic on dangerousprototypes.com forum](http://dangerousprototypes.com/forum/viewtopic.php?t=7218).  
-If you are reading this after I finished my project (so you are in the future, WOAH!), probably I'm not updating this document anymore. If it was useful to you, please help to keep it updated, by modifying the document and making a Pull Request. The community will thank you.  
+
+If you are reading this after i finished my project (so you are in the future, WOAH!), probably i'm not updating this document anymore. If it was useful to you, please help to keep it updated, by modifying the document and making a Pull Request. The community will thank you. Please see the [Contributing](#contributing) section of this document.  
+
 **I'm currently building this project, and this page is a work in progress, so the info may be unaccurate and untested. No warranty is given. Please refer to [LICENSE.md file](https://github.com/5N44P/unisolder-notes/blob/master/LICENSE.md) for all the conditions.**
 
 
@@ -242,7 +244,8 @@ To substitute this part the important parameters are:
 * Vds(max) should be at least 75V.
 * Rds(on) should be no more than 0.01ohm.
 
-
+### Q14, Q15, Q16, Q18, Q19, Q21, Q22 IRLML6401
+This part can be substituted with VISHAY SI2315BDS-T1-E3 (@Tony, pg 113 unisolder forum)
 ### Q15 IRLML6401
 This part should not be installed when using the OLED display.
 
@@ -281,6 +284,7 @@ Crimp pin: MOLEX 008550102 2759-(555)L
 PCB connector: MOLEX 022292031 AE-6410-03A(241)  
 
 ### J5 RJ11v  
+
 This is just an RJ11 vertical connector. I found that Molex 95522-2667 fits perfectly.
 
 ### JBC T245
@@ -291,8 +295,12 @@ If you don't want to keep the orignal connector from your iron, I've used and I 
 Socket: **LUMBERG KFV 81**  
 Plug: **LUMBERG 0332 08-1**  
 
+## Contributing
+Contributing to this repo is very welcome, feel free to add any information.  
+The information on this repo are gathered all around the internet, especially from the Dangerous Proto forum, and not only by first-hand experience. Please specify if what you're adding is tested by you personally or mention the source.  
+Please pay attention to not add copyright-protected material to the repo. Photos you're not the author have to be considered under full copyright by the author, unless otherwise explicitly stated.
 
-
+Many thanks to the contributors @rsre and @lauer2356/EricLau
 
 
 ~~Currently i'm on page 100 of the topic. This is just a reminder for myself, ignore it~~
