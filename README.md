@@ -4,7 +4,9 @@
 
 Just a set of notes for anyone who is trying to build his own unisolder controller.
 It is intented to be a personal recap of the [original topic on dangerousprototypes.com forum](http://dangerousprototypes.com/forum/viewtopic.php?t=7218).  
+
 If you are reading this after i finished my project (so you are in the future, WOAH!), probably i'm not updating this document anymore. If it was useful to you, please help to keep it updated, by modifying the document and making a Pull Request. The community will thank you. Please see the [Contributing](#contributing) section of this document.  
+
 **I'm currently building this project, and this page is a work in progress, so the info may be unaccurate and untested. No warranty is given. Please refer to [LICENSE.md file](https://github.com/5N44P/unisolder-notes/blob/master/LICENSE.md) for all the conditions.**
 
 
@@ -19,7 +21,7 @@ If you are reading this after i finished my project (so you are in the future, W
     + [Calibration](#calibration)
     + [Iron ID resistors](#iron-id-resistors)
   * [Software and programming the PIC](#software-and-programming-the-pic)
-  * [Equivalent parts in bom](#equivalent-parts-in-bom)
+  * [Equivalent parts in BOM](#equivalent-parts-in-BOM)
   * [Packages compatibility](#packages-compatibility)
   * [Connectors](#connectors)
 
@@ -29,9 +31,9 @@ If you are reading this after i finished my project (so you are in the future, W
 ## General notes
 
 ### Soldering and mounting
-No hot air or reflow oven si required, the board can be mounted with a regular soldering iron.  
+No hot air or reflow oven is required, the board can be mounted with a regular soldering iron.  
 Sparkybg reccomends BGA no-clean flux. I personally use a felt tip regular flux and it works well for me.  
-**ATTENTION** there are some resistor pairs that can be mounted in the wrong direction. All the mentioned couples have to be mounted with the long side according to the long side of the front board. Those are the couples that require special attention during the mounting:
+**ATTENTION**: there are some resistor pairs that can be mounted in the wrong direction. All the mentioned couples have to be mounted with the long side according to the long side of the front board. Those are the couples that require special attention during the mounting:
 * R27 and R28
 * R63 and R65, double and triple check this pair, it's very common to have these wrong. If you do probably you will get error 13.
 * R30 and R31
@@ -45,28 +47,28 @@ Also, this interactive pcb map by Bug82 is very usefull while mounting: [unisold
 
 
 ### Configuration resistors
-There are some configuration resistors, please make sure to pick the correct values for your application. Those are listed in the [*Equivalent parts in bom*](#equivalent-parts-in-bom) section of this document.
+There are some configuration resistors, please make sure to pick the correct values for your application. Those are listed in the [*Equivalent parts in BOM*](#equivalent-parts-in-BOM) section of this document.
 
 ### Power supply
-The controller can be powered anywere from 9V to 26V, AC or DC. However, since the iron current is limited to 6Arms, more voltage means more power delivered to the iron.  
-A **toroidal** transformer is recommended: **24V 120VA.**  
-Although this is not fully recommended (because of grounding difficulties in switching PSUs) you can use a 24V DC supply.  
+The controller can be powered anywere from 9V to 26V, AC or DC. However, since the iron current is limited to 6A RMS, more voltage means more power delivered to the iron.
+A **toroidal** transformer is recommended: **24V 120VA**.
+Although this is not fully recommended (because of grounding difficulties in switching PSUs) you can use a 24V DC supply.
 There are two power input ports on the *"back"* pcb. One is for AC, the other is for DC.
 
 ### Earthing
-The controller should not be earthed in any way, except for the iron tip. In many cases the earth of the tip differs from the ground of the controller. For this reason, is not possible to use the tip earth connection to send the sleep/stand signal (see [Sleep sensor](#sleep-sensor) section of this document. SLEEP pin should never be connected directly to the iron tip.  
+The controller should not be earthed in any way, except for the iron tip. In many cases the earth of the tip differs from the ground of the controller. For this reason, is not possible to use the tip earth connection to send the sleep/stand signal (see [Sleep sensor](#sleep-sensor) section of this document. SLEEP pin should never be connected directly to the iron tip.
 Also, proceed with caution with the ground clip lead if troubleshooting the board with an oscilloscopoe. Disconnect the system from main's earth before attaching the clip to board ground.
 
 
 ### OLED display configuration
-At an early stage of the project the author was planning to implement both the 7 segment display and the OLED display. The 7 segment option was never implemented, and the compatibility was removed. 
+At an early stage of the project the author was planning to implement both the 7 segment display and the OLED display. The 7 segment option was never implemented, and the compatibility was removed.
 There are some components that you'll have to remove from the BOM and some pads to short.
 * Ensure to get a SSD1306 128x64 oled. It is mainly available in a 0.96" size. I've used this part with success: **DD-12864WE-4A**. However, user SZ64 from the forum was able to get a 1.3" display (**UG-2864KSWLG01**) and confirmed that it is pin to pin compatible, and needs 12V. Users NECHTO and afedorov patched the firmware to work with SH1106 displays, patches can be found in this [forum post](http://dangerousprototypes.com/forum/viewtopic.php?f=56&t=7218&p=67042&hilit=display+SH1106#p67042) and recompiled firmware in this [other post](http://dangerousprototypes.com/forum/viewtopic.php?f=56&t=7218&start=1665#p67047).
 * Q15, Q17 and U9 (UL2003N) are not needed.
-* Ra to Rg are shorted 
+* Ra to Rg are shorted
 * Ja to Jg are shorted  
 * Short, on the back side of the front pcb, the pins that have some soldermask free pads arround, with the pads.
-* See the [U19 FAN5331 section](#u19-fan5331-r68) in this document, for picking the correct boost feedback resistor. 
+* See the [U19 FAN5331 section](#u19-fan5331-r68) in this document, for picking the correct boost feedback resistor.
 
 ### Buzzer
 Q20 and D17 are needed only if a DC active buzzer (internal oscillator) is used. The one specified in BOM, however, does not need them.
@@ -76,12 +78,12 @@ Unfortunately for now the DC buzzers are not supported by the firmware.
 The author of the project has provided also a sensor module, based on an IR system, to detect whether the iron is in its holder.  
 You can use whatever system you want: a mechaincal switch, a reed switch, an hall sensor... You can use any switch or any other device that shorts SLEEP to GND when the tool is in the holder. SLEEP is connected to a 3.3v pullup resistor.
 
-### Calibration 
+### Calibration
 You'll need to calibrate the controller by connecting a very precise 10 ohm resistor (0.1% is reccomended) between SENSEA and Vout1-.  
 Go to the Calibration submenu and turn the trimmer until R shows as close as possible to 100 times the resistor. If the trimmer doesn't get you to the value, try replacing R57 and R59 (one by one) with next higher and next lower value (1.8k, 1.3k).
 
 ### Iron ID resistors
-The station can automatically recognise the instrument you attach to it. To do this, you will need a resistor pair in the iron connector, so that the system can read it when a new instrument is plugged. If you don't want to switch between instruments, you can simply connect the resistor to the station connector instead of the iron connector. 
+The station can automatically recognise the instrument you attach to it. To do this, you will need a resistor pair in the iron connector, so that the system can read it when a new instrument is plugged. If you don't want to switch between instruments, you can simply connect the resistor to the station connector instead of the iron connector.
 ID resistors must be not less than 1% tolerance.
 We will call Rid1 the resistor that goes between ID and Vout1-, and Rid2 the resistor that goes between ID and Vout2-
 
@@ -100,30 +102,28 @@ There are two alternatives for the PIC32 firmware:
 * Using the firmware without bootloader, loading it directly with a PicKit
 * Using the firmware with bootloader, loading the bootloader with the PicKit and the firmware via usb and UniSolder's PC software.
 
-To me is unclear what are the advantages of picking one choice over the other, i have to ask the author to clarify.
+To me it's unclear what are the advantages of picking one choice over the other, I have to ask the author to clarify.
 
-If you don't have a pickit and don't want to get one, you can use an arduino as here http://www.microchip.com/forums/m653443.aspx. I've not tried this solution personally, so i don't know if it works. Let me know if you try this.  
+If you don't have a pickit and don't want to get one, you can use an arduino as [here](http://www.microchip.com/forums/m653443.aspx). I've not tried this solution personally, so i don't know if it works. Let me know if you try this.  
 You can also use [pic32prog](https://github.com/sergev/pic32prog) from sergev, if you have a pickit 2 and want to program the microcontroller.  
-To load the firmware with a PicKit you will have to use MPLAB X, microchip's software.  
+To load the firmware with a PicKit you will have to use MPLAB X, Microchip's software.  
 As zed65 stated in the forum: "You can NOT program the PIC via the PicKit2/3 standalone programming software. You have to put the programmer into MPLab mode in the standalone software then program it via MPLab."  
 
 To attach the PicKit3 to the unisolder board chech on the PicKit for the little arrow pointing to pin 1. Connect that pin to the square pad on the unisolder board, and the rest of the pins in order. Pin 6 of the PicKit stays disconnected.  
-
 
 #### Modify the software
 If you want to modify the software you'll have to compile it with XC32 v1.33 compiler (**paid**), adding the "s" option to the optimization.
 
 #### Testing the bootloader
-To test if the bootloader loading went ok, hold down keys "+" and "-" during power up. If some moving squares appear on the screen, the bootloader is working. 
+To test if the bootloader loading went ok, hold down keys "+" and "-" during power up. If some moving squares appear on the screen, the bootloader is working.
 
-## Equivalent parts in bom
+## Equivalent parts in BOM
 Some parts are not really easy to find. Some of them can be easily substituted with equivalent parts.
 
 ### Rs1 shunt resistor, R37, R42
 0.003 or 0.004 ohm resistor can be used as a shunt. **WSL3637** from Vishay is used. I wasn't able to find an equivalent part that would have a similar package.
 If you use **0.003** ohm shunt, R37 and R42 have to be both **1.5k** 0.1%.  
 If you use **0.004** ohm shunt, R37 and R42 have to be both **2.0k** 0.1%.  
-
 
 ### Ra to Rg 47ohm
 Those resistors are not needed. You will need to short their pads with solder or use zero ohm resistors.
@@ -136,8 +136,8 @@ This resistor is in a 2512 format, 10M, it is there to prevent huge electrical p
 You can use any value between 1M and 10M, or leave it disconnected if you feel safe, anyway this isn't recommended.
 
 ### Capacitors
-For the ceramic capacitors insulator type, C0G is the best, X7R is also good. X5R is not as good as X7R. If it's possible avoid Y5V. 
-Where voltage is not specified you can pick any voltage. 50V rating is better than higher.  A contributed list of which capacitors need higher voltages than the logic 3.3V would be appreciated. 
+For the ceramic capacitors insulator type, C0G is the best, X7R is also good. X5R is not as good as X7R. If it's possible avoid Y5V.
+Where voltage is not specified you can pick any voltage. 50V rating is better than higher.  A contributed list of which capacitors need higher voltages than the logic 3.3V would be appreciated.
 
 ### Diodes
 Please note that many times with diodes there is the same part from a different manifacturer listed with the first two letters.  
@@ -148,11 +148,11 @@ This part can be substituted with SB5100 or other Schottky Rectifiers with at le
 
 ### D5, D8, D10, D14, D15	BAT46WH
 Alternative parts:
-* BAT46WH 
+* BAT46WH
 
 ### D6, D7, D12	SS310A
 SS310A means 3A, 100V schottky. Any Schottky with the same ratings will do. For example:
-* SK310SMA 
+* SK310SMA
 
 ### D9, D11, D13	1N4007
 Alternative parts:
@@ -163,7 +163,7 @@ If replacing this part, beware that the reverse leakage current is very importan
 
 ### D22	SS34A
 SS34A means 3A, 40V schottky. Any Schottky with the same ratings will do. For example:
-* SK34SMA 
+* SK34SMA
 * SS34FA
 
 ### D16, D17, D20, D21	BAV199
@@ -176,7 +176,7 @@ This part is common with a suffix, such as "BAV199,215". It is the same part.
 
 ### Rc2 Bourns trimmer
 In BOM it's indicated as Bourns 3362, this part is a THT trimmer from a previous version, correct part number is **Bourns 3364X-1-202E.**  
-I'm using a **Bourns 3314J-1-202E** which also fits well. 
+I'm using a **Bourns 3314J-1-202E** which also fits well.
 
 
 ### Q10, Q11: IPD053N08
@@ -189,11 +189,11 @@ If **LM2675M-ADJ** is used, R3 has to be 3k and R4 has to be 1.8k.
 LM2674 can be used too.
 
 ### U9 ULN2003L
-You don't need this IC, this was only for the 7-seg version. 
+You don't need this IC, this was only for the 7-seg version.
 
 ### U10 MCP4651-503 (50k)
 This part seems hard to find. You can replace it with the MCP4651-104 (100k) version. You can **NOT** use the 103 (10k) version.  
-**Beware that this part is different from U15 below**, they have a similar code but with the 5 and the 6 switched. 
+**Beware that this part is different from U15 below**, they have a similar code but with the 5 and the 6 switched.
 
 ### U15 MCP4561-503 (50k)
 This part (as before) seems hard to find. You can replace it with the MCP4561-104 (100k) version. You can **NOT** use the 103 (10k) version.  
@@ -206,7 +206,7 @@ This part seems harder to find than the others. These are some of the possible a
 * ISL21010CFH330Z
 * MAX6035AAUR30 may work, not personally tested.
 * LM4120AIM5-3.0 may work, not personally tested.
- 
+
 ### U14 LM4041CIM3-1.2
 Can be substituted with **LM4051AEM3-1.2**
 
@@ -240,31 +240,31 @@ Can be substituted with **SQD50P08**
 ### Q10, Q11 IPD053N08
 **AUIRFR3607** or **IPD12CN10NGATMA1** can do the job.
 
-To substitute this part the important parameters are: 
-* Vds(max) should be at least 75V. 
+To substitute this part the important parameters are:
+* Vds(max) should be at least 75V.
 * Rds(on) should be no more than 0.01ohm.
 
 ### Q14, Q15, Q16, Q18, Q19, Q21, Q22 IRLML6401
 This part can be substituted with VISHAY SI2315BDS-T1-E3 (@Tony, pg 113 unisolder forum)
 ### Q15 IRLML6401
-This part should not be installed when using the OLED display
+This part should not be installed when using the OLED display.
 
 ### Q17 IRLML2502
-This part should not be installed when using the OLED display
+This part should not be installed when using the OLED display.
 
 ## Packages compatibility
 
 ### SOD123 diodes
 SOD123 diodes can be used also in miniMELF packages. Check in the document to see which parameters are important, to find a substitute.  
-If you can't find the part you are looking for, ask in the thread and please open an issue/pull request to update the document. 
+If you can't find the part you are looking for, ask in the thread and please open an issue/pull request to update the document.
 
-### SOT223 
+### SOT223
 Footprints for the SOT223 components are also compatible with DPAK packages.
 
 ## Connectors
 These are the part numbers for the connectors i've used. I was able to crimp all of them with a single tool: **NEWBRAND NB-8160-04**
 
-### J1, J7 
+### J1, J7
 Cable connector: MOLEX 039013022 555702R1  
 Crimp pin: MOLEX 39-00-0039  
 PCB connector: MOLEX 5566-02A-210  
@@ -284,13 +284,14 @@ Crimp pin: MOLEX 008550102 2759-(555)L
 PCB connector: MOLEX 022292031 AE-6410-03A(241)  
 
 ### J5 RJ11v  
-This is just an RJ11 vertical connector. I found that Molex 95522-2667 fits perfectly.  
+
+This is just an RJ11 vertical connector. I found that Molex 95522-2667 fits perfectly.
 
 ### JBC T245
 The matching socket for this iron, if you want to keep the original plug, is the Hirose RPC1-12RB-6P(71)
 
 ### Iron connector
-If you don't want to keep the orignal connector from your iron, i've used and i suggest:  
+If you don't want to keep the orignal connector from your iron, I've used and I suggest:  
 Socket: **LUMBERG KFV 81**  
 Plug: **LUMBERG 0332 08-1**  
 
