@@ -63,7 +63,7 @@ Although this is not fully recommended (because of grounding difficulties in swi
 There are two power input ports on the *"back"* pcb. One is for AC, the other is for DC.
 
 ### Earthing
-The controller should not be earthed in any way, except for the iron tip. In many cases the earth of the tip differs from the ground of the controller. For this reason, is not possible to use the tip earth connection to send the sleep/stand signal (see [Sleep sensor](#sleep-sensor) section of this document. SLEEP pin should never be connected directly to the iron tip.
+The controller should not be earthed in any way, except for the iron tip. In many cases the earth of the tip differs from the ground of the controller. For this reason, is not possible to use the tip earth connection to send the sleep/stand signal (see [Sleep sensor](#sleep-sensor) section of this document). SLEEP pin should never be connected directly to the iron tip.
 Also, proceed with caution with the ground clip lead if troubleshooting the board with an oscilloscopoe. Disconnect the system from main's earth before attaching the clip to board ground.
 
 
