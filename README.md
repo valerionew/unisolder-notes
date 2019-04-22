@@ -120,20 +120,26 @@ To test if the bootloader loading went ok, hold down keys "+" and "-" during pow
 ## Equivalent parts in BOM
 Some parts are not really easy to find. Some of them can be easily substituted with equivalent parts.
 
-### Rs1 shunt resistor, R37, R42
+### Resistors
+
+#### Rs1 shunt resistor, R37, R42
 0.003 or 0.004 ohm resistor can be used as a shunt. **WSL3637** from Vishay is used. I wasn't able to find an equivalent part that would have a similar package.
 If you use **0.003** ohm shunt, R37 and R42 have to be both **1.5k** 0.1%.  
 If you use **0.004** ohm shunt, R37 and R42 have to be both **2.0k** 0.1%.  
 
-### Ra to Rg 47ohm
+#### Ra to Rg 47ohm
 Those resistors are not needed. You will need to short their pads with solder or use zero ohm resistors.
 
-### 3v and 3.0v zener diodes
+#### 3v and 3.0v zener diodes
 Despite the different name in the BOM, the same part can be used for both.
 
-### Rgnd1
+#### Rgnd1
 This resistor is in a 2512 format, 10M, it is there to prevent huge electrical potentials between the computer's ground when it's connected and the station's ground.  
 You can use any value between 1M and 10M, or leave it disconnected if you feel safe, anyway this isn't recommended.
+
+#### Rc2 Bourns trimmer
+In BOM it's indicated as Bourns 3362, this part is a THT trimmer from a previous version, correct part number is **Bourns 3364X-1-202E.**  
+I'm using a **Bourns 3314J-1-202E** which also fits well.
 
 ### Capacitors
 For the ceramic capacitors insulator type, C0G is the best, X7R is also good. X5R is not as good as X7R. If it's possible avoid Y5V.
@@ -142,64 +148,57 @@ Where voltage is not specified you can pick any voltage. 50V rating is better th
 ### Diodes
 Please note that many times with diodes there is the same part from a different manifacturer listed with the first two letters.  
 
-### D1, D2, D3, D4 SR580
+#### D1, D2, D3, D4 SR580
 SR580 means "Schottky rectifier, 5A, 80V". There's nothing special about these diodes. Just use 5A 80V Schottky in a DO-201 package.  
 This part can be substituted with SB5100 or other Schottky Rectifiers with at least 5A current capability and at least 80V forward voltage. However the 80V part is still preferable, because it will have less forward drop.  
 
-### D5, D8, D10, D14, D15	BAT46WH
+#### D5, D8, D10, D14, D15	BAT46WH
 Alternative parts:
 * BAT46WH
 
-### D6, D7, D12	SS310A
+#### D6, D7, D12	SS310A
 SS310A means 3A, 100V schottky. Any Schottky with the same ratings will do. For example:
 * SK310SMA
 
-### D9, D11, D13	1N4007
+#### D9, D11, D13	1N4007
 Alternative parts:
 * GF1M
 
-### D18, D19	MMBD1505A
+#### D18, D19	MMBD1505A
 If replacing this part, beware that the reverse leakage current is very important and should be as low as possible.
 
-### D22	SS34A
+#### D22	SS34A
 SS34A means 3A, 40V schottky. Any Schottky with the same ratings will do. For example:
 * SK34SMA
 * SS34FA
 
-### D16, D17, D20, D21	BAV199
+#### D16, D17, D20, D21	BAV199
 This part is common with a suffix, such as "BAV199,215". It is the same part.
 
-### TVS1 60V TVS
+#### TVS1 60V TVS
 60V TVS is just a 60V TVS. Any 60V TVS ot close to this will do. For example:
 * 1.5KE62A
 
+#ICs
 
-### Rc2 Bourns trimmer
-In BOM it's indicated as Bourns 3362, this part is a THT trimmer from a previous version, correct part number is **Bourns 3364X-1-202E.**  
-I'm using a **Bourns 3314J-1-202E** which also fits well.
-
-
-### Q10, Q11: IPD053N08
-If you want to change this part, pick a part which has same: package, Rds(on), Vds, and gate threshold voltage.
-
-### U1 LM2675, R3 and R4
+#### U1 LM2675, R3 and R4
 Either the LM2675M-3.3 and the LM2675M-ADJ version can be used.   
 If **LM2675M-3.3** is used, R3 has to be 0 (shorted) and R4 has to be 1.5k.  
 If **LM2675M-ADJ** is used, R3 has to be 3k and R4 has to be 1.8k.  
 LM2674 can be used too.
 
-### U9 ULN2003L
+#### U9 ULN2003L
 You don't need this IC, this was only for the 7-seg version.
 
-### U10 MCP4651-503 (50k)
+#### U10 MCP4651-503 (50k)
 This part seems hard to find. You can replace it with the MCP4651-104 (100k) version. You can **NOT** use the 103 (10k) version.  
 **Beware that this part is different from U15 below**, they have a similar code but with the 5 and the 6 switched.
 
-### U15 MCP4561-503 (50k)
+#### U15 MCP4561-503 (50k)
 This part (as before) seems hard to find. You can replace it with the MCP4561-104 (100k) version. You can **NOT** use the 103 (10k) version.  
 **Beware that this part is different from U10 above**, they have a similar code but with the 5 and the 6 switched.
 
-### U6 REF3030
+#### U6 REF3030
 This part seems harder to find than the others. These are some of the possible alternatives:
 * MAX6010AEUR
 * MAX6063AEUR
@@ -207,15 +206,15 @@ This part seems harder to find than the others. These are some of the possible a
 * MAX6035AAUR30 may work, not personally tested.
 * LM4120AIM5-3.0 may work, not personally tested.
 
-### U14 LM4041CIM3-1.2
+#### U14 LM4041CIM3-1.2
 Can be substituted with **LM4051AEM3-1.2**
 
-### U12, U13, U18 MCP6V27
+#### U12, U13, U18 MCP6V27
 This part can be substituted with:
 * MCP6V02
 * MCP6V07
 
-### U17 MCP6V03
+#### U17 MCP6V03
 This part can be substituted with:
 * MCP6V01
 * MCP6V06
@@ -223,7 +222,7 @@ This part can be substituted with:
 * MCP6V26
 * MCP6V28
 
-### U19 FAN5331, R68
+#### U19 FAN5331, R68
 This part can be substituted with LM2731, FAN5333A or FAN5333B. Please note that either version of FAN5333 have a different feedback voltage from each other and from the FAN5331. LM2731 has the same feedback voltage. This part is the boost converter for the OLED display. Different OLED displays need different voltages. Usually they can be either 9V or 12V. Check the voltage of your OLED and select R68 accordingly. R68 should be at least 1%.
 
 Follows a table with values that should suit. These values are not tested (FAN5333B with 9V display is tested by me and working), proceed with caution and check the voltage prior to soldering the OLED.
@@ -234,57 +233,61 @@ Follows a table with values that should suit. These values are not tested (FAN53
 | FAN5333A (0.110V) | 340                | 249                 |
 | FAN5333B (0.315V) | 1k                 | 732                 |
 
-### Q2, Q8 SUD50P10
+### Transistors
+
+#### Q10, Q11: IPD053N08
+If you want to change this part, pick a part which has same: package, Rds(on), Vds, and gate threshold voltage.
+
+#### Q2, Q8 SUD50P10
 Can be substituted with **SQD50P08**
 
-### Q10, Q11 IPD053N08
+#### Q10, Q11 IPD053N08
 **AUIRFR3607** or **IPD12CN10NGATMA1** can do the job.
 
 To substitute this part the important parameters are:
 * Vds(max) should be at least 75V.
 * Rds(on) should be no more than 0.01ohm.
 
-### Q14, Q15, Q16, Q18, Q19, Q21, Q22 IRLML6401
+#### Q14, Q15, Q16, Q18, Q19, Q21, Q22 IRLML6401
 This part can be substituted with VISHAY SI2315BDS-T1-E3 (@Tony, pg 113 unisolder forum)
-### Q15 IRLML6401
+#### Q15 IRLML6401
 This part should not be installed when using the OLED display.
 
-### Q17 IRLML2502
+#### Q17 IRLML2502
 This part should not be installed when using the OLED display.
 
-## Packages compatibility
+### Packages compatibility
 
-### SOD123 diodes
+#### SOD123 diodes
 SOD123 diodes can be used also in miniMELF packages. Check in the document to see which parameters are important, to find a substitute.  
 If you can't find the part you are looking for, ask in the thread and please open an issue/pull request to update the document.
 
-### SOT223
+#### SOT223
 Footprints for the SOT223 components are also compatible with DPAK packages.
 
-## Connectors
+### Connectors
 These are the part numbers for the connectors i've used. I was able to crimp all of them with a single tool: **NEWBRAND NB-8160-04**
 
-### J1, J7
+#### J1, J7
 Cable connector: MOLEX 039013022 555702R1  
 Crimp pin: MOLEX 39-00-0039  
 PCB connector: MOLEX 5566-02A-210  
 
-### J2, J3, J9  
+#### J2, J3, J9  
 Cable connector: MOLEX 5557-04R  
 Crimp pin: MOLEX 39-00-0039  
 PCB connector: MOLEX 039288040 5566-04A-210  
 
-### J4, J8  
+#### J4, J8  
 Cable connector: 3M 89110-0101HA  
 PCB connector: 3M N2510-6002RB  
 
-### J6
+#### J6
 Cable connector: MOLEX 022013037 2695-03RP  
 Crimp pin: MOLEX 008550102 2759-(555)L  
 PCB connector: MOLEX 022292031 AE-6410-03A(241)  
 
-### J5 RJ11v  
-
+#### J5 RJ11v  
 This is just an RJ11 vertical connector. I found that Molex 95522-2667 fits perfectly.
 
 ### JBC T245
