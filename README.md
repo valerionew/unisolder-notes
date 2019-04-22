@@ -9,23 +9,30 @@ If you are reading this after i finished my project (so you are in the future, W
 
 **I'm currently building this project, and this page is a work in progress, so the info may be unaccurate and untested. No warranty is given. Please refer to [LICENSE.md file](https://github.com/5N44P/unisolder-notes/blob/master/LICENSE.md) for all the conditions.**
 
+<!-- TOC depthFrom:2 depthTo:3 withLinks:1 updateOnSave:1 orderedList:0 -->
 
-  * [General notes](#general-notes)
-    + [Soldering and mounting](#soldering-and-mounting)
-    + [Configuration resistors](#configuration-resistors)
-    + [Power supply](#power-supply)
-    + [Earthing](#earthing)
-    + [OLED display configuration](#oled-display-configuration)
-    + [Buzzer](#buzzer)
-    + [Sleep sensor](#sleep-sensor)
-    + [Calibration](#calibration)
-    + [Iron ID resistors](#iron-id-resistors)
-  * [Software and programming the PIC](#software-and-programming-the-pic)
-  * [Equivalent parts in BOM](#equivalent-parts-in-BOM)
-  * [Packages compatibility](#packages-compatibility)
-  * [Connectors](#connectors)
+- [General notes](#general-notes)
+	- [Soldering and mounting](#soldering-and-mounting)
+	- [Configuration resistors](#configuration-resistors)
+	- [Power supply](#power-supply)
+	- [Earthing](#earthing)
+	- [OLED display configuration](#oled-display-configuration)
+	- [Buzzer](#buzzer)
+	- [Sleep sensor](#sleep-sensor)
+	- [Calibration](#calibration)
+	- [Iron ID resistors](#iron-id-resistors)
+- [Software and programming the PIC](#software-and-programming-the-pic)
+- [Equivalent parts in BOM](#equivalent-parts-in-bom)
+	- [Resistors](#resistors)
+	- [Capacitors](#capacitors)
+	- [Diodes](#diodes)
+	- [Transistors](#transistors)
+	- [Packages compatibility](#packages-compatibility)
+	- [Connectors](#connectors)
+	- [Iron connector](#iron-connector)
+- [Contributing](#contributing)
 
-<small><i><a href='http://ecotrust-canada.github.io/markdown-toc/'>Table of contents generated with markdown-toc</a></i></small>
+<!-- /TOC -->
 
 
 ## General notes
@@ -41,7 +48,7 @@ Sparkybg reccomends BGA no-clean flux. I personally use a felt tip regular flux 
 * R25 and R26
 * C60 and R46
 
-Please check <a href="http://dangerousprototypes.com/forum/download/file.php?id=11712&mode=view" target="_blank">the image provided by the author </a> if you have any doubt about mounting or component orientation.
+Please check <a href="http://dangerousprototypes.com/forum/download/file.php?id=11712&mode=view">the image provided by the author</a> if you have any doubt about mounting or component orientation.
 
 Also, this interactive pcb map by Bug82 is very usefull while mounting: [unisolder-chips](http://dangerousprototypes.com/forum/download/file.php?id=12034)
 
@@ -290,13 +297,13 @@ PCB connector: MOLEX 022292031 AE-6410-03A(241)
 #### J5 RJ11v  
 This is just an RJ11 vertical connector. I found that Molex 95522-2667 fits perfectly.
 
-### JBC T245
-The matching socket for this iron, if you want to keep the original plug, is the Hirose RPC1-12RB-6P(71)
-
 ### Iron connector
 If you don't want to keep the orignal connector from your iron, I've used and I suggest:  
 Socket: **LUMBERG KFV 81**  
 Plug: **LUMBERG 0332 08-1**  
+
+#### JBC T245
+The matching socket for this iron, if you want to keep the original plug, is the Hirose RPC1-12RB-6P(71)
 
 ## Contributing
 Contributing to this repo is very welcome, feel free to add any information.  
