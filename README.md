@@ -13,6 +13,7 @@ If you are reading this after i finished my project (so you are in the future, W
 
 - [General notes](#general-notes)
 	- [Soldering and mounting](#soldering-and-mounting)
+	- [Interactive PCB map](#interactive-pcb-map)
 	- [Configuration resistors](#configuration-resistors)
 	- [Power supply](#power-supply)
 	- [Earthing](#earthing)
@@ -50,7 +51,11 @@ Sparkybg reccomends BGA no-clean flux. I personally use a felt tip regular flux 
 
 Please check <a href="http://dangerousprototypes.com/forum/download/file.php?id=11712&mode=view">the image provided by the author</a> if you have any doubt about mounting or component orientation.
 
-Also, this interactive pcb map by Bug82 is very usefull while mounting: [unisolder-chips](http://dangerousprototypes.com/forum/download/file.php?id=12034)
+### Interactive PCB map
+
+I'm currently hosting on my github pages this very useful interactive pcb map by Bug82: [unisolder-chips](https://5n44p.github.io/unisolder-chips/)
+
+Original post [here](http://dangerousprototypes.com/forum/download/file.php?id=12034), i'm hosting it with the author's permission after his hosting went down.
 
 
 ### Configuration resistors
