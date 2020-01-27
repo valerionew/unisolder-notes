@@ -40,7 +40,7 @@ If you are reading this after i finished my project (so you are in the future, W
 
 ### Soldering and mounting
 No hot air or reflow oven is required, the board can be mounted with a regular soldering iron.  
-Sparkybg reccomends BGA no-clean flux. I personally use a felt tip regular flux and it works well for me.  
+Sparkybg recommends BGA no-clean flux. I personally use a felt tip regular flux and it works well for me.  
 **ATTENTION**: there are some resistor pairs that can be mounted in the wrong direction. All the mentioned couples have to be mounted with the long side according to the long side of the front board. Those are the couples that require special attention during the mounting:
 * R27 and R28
 * R63 and R65, double and triple check this pair, it's very common to have these wrong. If you do probably you will get error 13.
@@ -53,23 +53,23 @@ Please check <a href="http://dangerousprototypes.com/forum/download/file.php?id=
 
 ### Interactive PCB map
 
-I'm currently hosting on my github pages this very useful interactive pcb map by Bug82: [unisolder-chips](https://5n44p.github.io/unisolder-chips/)
+I'm currently hosting on my GitHub pages this very useful interactive pcb map by Bug82: [unisolder-chips](https://5n44p.github.io/unisolder-chips/)
 
-Original post [here](http://dangerousprototypes.com/forum/download/file.php?id=12034), i'm hosting it with the author's permission after his hosting went down.
+Original post [here](http://dangerousprototypes.com/forum/download/file.php?id=12034), I'm hosting it with the author's permission after his hosting went down.
 
 
 ### Configuration resistors
 There are some configuration resistors, please make sure to pick the correct values for your application. Those are listed in the [*Equivalent parts in BOM*](#equivalent-parts-in-BOM) section of this document.
 
 ### Power supply
-The controller can be powered anywere from 9V to 26V, AC or DC. However, since the iron current is limited to 6A RMS, more voltage means more power delivered to the iron.
+The controller can be powered anywhere from 9V to 26V, AC or DC. However, since the iron current is limited to 6A RMS, more voltage means more power delivered to the iron.
 A **toroidal** transformer is recommended: **24V 120VA**.
 Although this is not fully recommended (because of grounding difficulties in switching PSUs) you can use a 24V DC supply.
 There are two power input ports on the *"back"* pcb. One is for AC, the other is for DC.
 
 ### Earthing
 The controller should not be earthed in any way, except for the iron tip. In many cases the earth of the tip differs from the ground of the controller. For this reason, is not possible to use the tip earth connection to send the sleep/stand signal (see [Sleep sensor](#sleep-sensor) section of this document). SLEEP pin should never be connected directly to the iron tip.
-Also, proceed with caution with the ground clip lead if troubleshooting the board with an oscilloscopoe. Disconnect the system from main's earth before attaching the clip to board ground.
+Also, proceed with caution with the ground clip lead if troubleshooting the board with an oscilloscope. Disconnect the system from main's earth before attaching the clip to board ground.
 
 
 ### OLED display configuration
@@ -79,7 +79,7 @@ There are some components that you'll have to remove from the BOM and some pads 
 * Q15, Q17 and U9 (UL2003N) are not needed.
 * Ra to Rg are shorted
 * Ja to Jg are shorted  
-* Short, on the back side of the front pcb, the pins that have some soldermask free pads arround, with the pads.
+* Short, on the back side of the front pcb, the pins that have some soldermask free pads around, with the pads.
 * See the [U19 FAN5331 section](#u19-fan5331-r68) in this document, for picking the correct boost feedback resistor.
 
 ### Buzzer
@@ -88,26 +88,26 @@ Unfortunately for now the DC buzzers are not supported by the firmware.
 
 ### Sleep sensor  
 The author of the project has provided also a sensor module, based on an IR system, to detect whether the iron is in its holder.  
-You can use whatever system you want: a mechaincal switch, a reed switch, an hall sensor... You can use any switch or any other device that shorts SLEEP to GND when the tool is in the holder. SLEEP is connected to a 3.3v pullup resistor.
+You can use whatever system you want: a mechanical switch, a reed switch, an hall sensor... You can use any switch or any other device that shorts SLEEP to GND when the tool is in the holder. SLEEP is connected to a 3.3v pullup resistor.
 
 ### Calibration
-You'll need to calibrate the controller by connecting a very precise 10 ohm resistor (0.1% is reccomended) between SENSEA and Vout1-.  
+You'll need to calibrate the controller by connecting a very precise 10 ohm resistor (0.1% is recommended) between SENSEA and Vout1-.  
 Go to the Calibration submenu and turn the trimmer until R shows as close as possible to 100 times the resistor. If the trimmer doesn't get you to the value, try replacing R57 and R59 (one by one) with next higher and next lower value (1.8k, 1.3k).
 
 ### Iron ID resistors
-The station can automatically recognise the instrument you attach to it. To do this, you will need a resistor pair in the iron connector, so that the system can read it when a new instrument is plugged. If you don't want to switch between instruments, you can simply connect the resistor to the station connector instead of the iron connector.
+The station can automatically recognize the instrument you attach to it. To do this, you will need a resistor pair in the iron connector, so that the system can read it when a new instrument is plugged. If you don't want to switch between instruments, you can simply connect the resistor to the station connector instead of the iron connector.
 ID resistors must be not less than 1% tolerance.
 We will call Rid1 the resistor that goes between ID and Vout1-, and Rid2 the resistor that goes between ID and Vout2-
 
-|    Soldering iron model  |   Rid1  |   Rid2  |
-|--------------------------|---------|---------|
-|     HAKKO T12            |   1k    |  5.6k   |
-| HAKKO FX8801, HAKKO 907  |   1k    |  820    |
-| JBC C245                 |   150   |  5.6k   |
-| JBC C210                 |   3k    |  5.6k   |
-| JBC Microtweezers        |   1k    |   //    |
-| WELLER WSP80             |   120   |  5.6k   |
-| ERSA RT80                |   300   |  110    |
+| Soldering iron model    | Rid1 | Rid2 |
+|:------------------------|:-----|:-----|
+| HAKKO T12               | 1k   | 5.6k |
+| HAKKO FX8801, HAKKO 907 | 1k   | 820  |
+| JBC C245                | 150  | 5.6k |
+| JBC C210                | 3k   | 5.6k |
+| JBC Microtweezers       | 1k   | //   |
+| WELLER WSP80            | 120  | 5.6k |
+| ERSA RT80               | 300  | 110  |
 
 ## Software and programming the PIC
 There are two alternatives for the PIC32 firmware:
@@ -116,12 +116,12 @@ There are two alternatives for the PIC32 firmware:
 
 To me it's unclear what are the advantages of picking one choice over the other, I have to ask the author to clarify.
 
-If you don't have a pickit and don't want to get one, you can use an arduino as [here](http://www.microchip.com/forums/m653443.aspx). I've not tried this solution personally, so i don't know if it works. Let me know if you try this.  
+If you don't have a pickit and don't want to get one, you can use an Arduino as [here](http://www.microchip.com/forums/m653443.aspx). I've not tried this solution personally, so i don't know if it works. Let me know if you try this.  
 You can also use [pic32prog](https://github.com/sergev/pic32prog) from sergev, if you have a pickit 2 and want to program the microcontroller.  
 To load the firmware with a PicKit you will have to use MPLAB X, Microchip's software.  
 As zed65 stated in the forum: "You can NOT program the PIC via the PicKit2/3 standalone programming software. You have to put the programmer into MPLab mode in the standalone software then program it via MPLab."  
 
-To attach the PicKit3 to the unisolder board chech on the PicKit for the little arrow pointing to pin 1. Connect that pin to the square pad on the unisolder board, and the rest of the pins in order. Pin 6 of the PicKit stays disconnected.  
+To attach the PicKit3 to the unisolder board check on the PicKit for the little arrow pointing to pin 1. Connect that pin to the square pad on the unisolder board, and the rest of the pins in order. Pin 6 of the PicKit stays disconnected.  
 
 #### Modify the software
 If you want to modify the software you'll have to compile it with XC32 v1.33 compiler (**paid**), adding the "s" option to the optimization.
@@ -158,7 +158,7 @@ For the ceramic capacitors insulator type, C0G is the best, X7R is also good. X5
 Where voltage is not specified you can pick any voltage. 50V rating is better than higher.  A contributed list of which capacitors need higher voltages than the logic 3.3V would be appreciated.
 
 ### Diodes
-Please note that many times with diodes there is the same part from a different manifacturer listed with the first two letters.  
+Please note that many times with diodes there is the same part from a different manufacturer listed with the first two letters.  
 
 #### D1, D2, D3, D4 SR580
 SR580 means "Schottky rectifier, 5A, 80V". There's nothing special about these diodes. Just use 5A 80V Schottky in a DO-201 package.  
@@ -188,7 +188,7 @@ SS34A means 3A, 40V schottky. Any Schottky with the same ratings will do. For ex
 This part is common with a suffix, such as "BAV199,215". It is the same part.
 
 #### TVS1 60V TVS
-60V TVS is just a 60V TVS. Any 60V TVS ot close to this will do. For example:
+60V TVS is just a 60V TVS. Any 60V TVS or close to this will do. For example:
 * 1.5KE62A
 
 #ICs
@@ -240,7 +240,7 @@ This part can be substituted with LM2731, FAN5333A or FAN5333B. Please note that
 Follows a table with values that should suit. These values are not tested (FAN5333B with 9V display is tested by me and working), proceed with caution and check the voltage prior to soldering the OLED.
 
 | IC                | R68 for 9V display | R68 for 12V display |
-|-------------------|--------------------|---------------------|
+|:------------------|:-------------------|:--------------------|
 | FAN5331 (1.230V)  | 4.7k               | 3k                  |
 | FAN5333A (0.110V) | 340                | 249                 |
 | FAN5333B (0.315V) | 1k                 | 732                 |
@@ -278,7 +278,7 @@ If you can't find the part you are looking for, ask in the thread and please ope
 Footprints for the SOT223 components are also compatible with DPAK packages.
 
 ### Connectors
-These are the part numbers for the connectors i've used. I was able to crimp all of them with a single tool: **NEWBRAND NB-8160-04**
+These are the part numbers for the connectors I've used. I was able to crimp all of them with a single tool: **NEWBRAND NB-8160-04**
 
 #### J1, J7
 Cable connector: MOLEX 039013022 555702R1  
@@ -303,7 +303,7 @@ PCB connector: MOLEX 022292031 AE-6410-03A(241)
 This is just an RJ11 vertical connector. I found that Molex 95522-2667 fits perfectly.
 
 ### Iron connector
-If you don't want to keep the orignal connector from your iron, I've used and I suggest:  
+If you don't want to keep the original connector from your iron, I've used and I suggest:  
 Socket: **LUMBERG KFV 81**  
 Plug: **LUMBERG 0332 08-1**  
 
@@ -318,4 +318,4 @@ Please pay attention to not add copyright-protected material to the repo. Photos
 Many thanks to the contributors @rsre and @lauer2356/EricLau
 
 
-~~Currently i'm on page 100 of the topic. This is just a reminder for myself, ignore it~~
+~~Currently I'm on page 100 of the topic. This is just a reminder for myself, ignore it~~
