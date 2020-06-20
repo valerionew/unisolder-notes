@@ -53,7 +53,7 @@ Please check <a href="http://dangerousprototypes.com/forum/download/file.php?id=
 
 ### Interactive PCB map
 
-I'm currently hosting on my GitHub pages this very useful interactive pcb map by Bug82: [unisolder-chips](https://5n44p.github.io/unisolder-chips/)
+I'm currently hosting on my GitHub pages this very useful interactive pcb map by Bug82: [unisolder-chips](https://valerionew.github.io/unisolder-chips/)
 
 Original post [here](http://dangerousprototypes.com/forum/download/file.php?id=12034), I'm hosting it with the author's permission after his hosting went down.
 
