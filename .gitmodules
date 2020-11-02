@@ -1,0 +1,4 @@
+[submodule "UniSolder-5.2"]
+	path = UniSolder-5.2
+	url = https://github.com/sparkybg/UniSolder-5.2
+	branch = main

@@ -12,6 +12,7 @@ If you are reading this after i finished my project (so you are in the future, W
 <!-- TOC depthFrom:2 depthTo:3 withLinks:1 updateOnSave:1 orderedList:0 -->
 
 - [General notes](#general-notes)
+	- [Sources](#sources)
 	- [Soldering and mounting](#soldering-and-mounting)
 	- [Interactive PCB map](#interactive-pcb-map)
 	- [Configuration resistors](#configuration-resistors)
@@ -37,6 +38,9 @@ If you are reading this after i finished my project (so you are in the future, W
 
 
 ## General notes
+
+### Sources
+Original sources from Sparkybg are available as a submodule in this repository. Check out the sources on GitHub: [sparkybg/UniSolder-5.2](https://github.com/sparkybg/UniSolder-5.2)
 
 ### Soldering and mounting
 No hot air or reflow oven is required, the board can be mounted with a regular soldering iron.  
