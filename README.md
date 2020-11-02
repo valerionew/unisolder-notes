@@ -1,4 +1,4 @@
-# unisolder-notes
+﻿# unisolder-notes
 ![License CC-BY-4.0](https://img.shields.io/badge/License-CC--BY--4.0-green.svg)
 <img align="right" src="/img/writing-01.png" width=250 />
 
@@ -105,13 +105,16 @@ We will call Rid1 the resistor that goes between ID and Vout1-, and Rid2 the res
 
 | Soldering iron model    | Rid1 | Rid2 |
 |:------------------------|:-----|:-----|
-| HAKKO T12               | 1k   | 5.6k |
+| HAKKO T12/T15           | 1k   | 5.6k |
 | HAKKO FX8801, HAKKO 907 | 1k   | 820  |
 | JBC C245                | 150  | 5.6k |
 | JBC C210                | 3k   | 5.6k |
+| JBC C105/C115           | 3k   | 1k   |
 | JBC Microtweezers       | 1k   | //   |
 | WELLER WSP80            | 120  | 5.6k |
+| WELLER WMRT             | 680  | //   |
 | ERSA RT80               | 300  | 110  |
+| PACE TD100 Black        | 680  | 560  |
 
 ## Software and programming the PIC
 There are two alternatives for the PIC32 firmware:
@@ -229,6 +232,7 @@ Can be substituted with **LM4051AEM3-1.2**
 This part can be substituted with:
 * MCP6V02
 * MCP6V07
+* AD8629
 
 #### U17 MCP6V03
 This part can be substituted with:
@@ -237,6 +241,7 @@ This part can be substituted with:
 * MCP6V08
 * MCP6V26
 * MCP6V28
+* AD8628
 
 #### U19 FAN5331, R68
 This part can be substituted with LM2731, FAN5333A or FAN5333B. Please note that either version of FAN5333 have a different feedback voltage from each other and from the FAN5331. LM2731 has the same feedback voltage. This part is the boost converter for the OLED display. Different OLED displays need different voltages. Usually they can be either 9V or 12V. Check the voltage of your OLED and select R68 accordingly. R68 should be at least 1%.
