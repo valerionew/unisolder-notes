@@ -111,10 +111,12 @@ We will call Rid1 the resistor that goes between ID and Vout1-, and Rid2 the res
 | JBC C210                | 3k   | 5.6k |
 | JBC C105/C115           | 3k   | 1k   |
 | JBC Microtweezers       | 1k   | //   |
+| JBC Nanotweezers        | 1.5k | //   |
 | WELLER WSP80            | 120  | 5.6k |
 | WELLER WMRT             | 680  | //   |
 | ERSA RT80               | 300  | 110  |
 | PACE TD100 Black        | 680  | 560  |
+| PACE TD200 Blue         | 680  | 470  |
 
 ## Software and programming the PIC
 There are two alternatives for the PIC32 firmware:
