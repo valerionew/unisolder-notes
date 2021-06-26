@@ -221,6 +221,7 @@ This part (as before) seems hard to find. You can replace it with the MCP4561-10
 
 #### U6 REF3030
 This part seems harder to find than the others. These are some of the possible alternatives:
+* REF3130AIDBZT 
 * MAX6010AEUR
 * MAX6063AEUR
 * ISL21010CFH330Z
