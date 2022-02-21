@@ -237,6 +237,9 @@ This part can be substituted with:
 * MCP6V07
 * AD8629
 
+#### U16 ADG736
+Can be substituted with **MAX394EUP+**
+
 #### U17 MCP6V03
 This part can be substituted with:
 * MCP6V01
@@ -259,9 +262,6 @@ Follows a table with values that should suit. These values are not tested (FAN53
 
 ### Transistors
 
-#### Q10, Q11: IPD053N08
-If you want to change this part, pick a part which has same: package, Rds(on), Vds, and gate threshold voltage.
-
 #### Q2, Q8 SUD50P10
 Can be substituted with **SQD50P08**
 
@@ -274,6 +274,7 @@ To substitute this part the important parameters are:
 
 #### Q14, Q15, Q16, Q18, Q19, Q21, Q22 IRLML6401
 This part can be substituted with VISHAY SI2315BDS-T1-E3 (@Tony, pg 113 unisolder forum)
+
 #### Q15 IRLML6401
 This part should not be installed when using the OLED display.
 
