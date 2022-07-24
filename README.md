@@ -274,6 +274,8 @@ To substitute this part the important parameters are:
 
 #### Q14, Q15, Q16, Q18, Q19, Q21, Q22 IRLML6401
 This part can be substituted with VISHAY SI2315BDS-T1-E3 (@Tony, pg 113 unisolder forum)
+- attempting right now at using BSH205G2R
+
 
 #### Q15 IRLML6401
 This part should not be installed when using the OLED display.
