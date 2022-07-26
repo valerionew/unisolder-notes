@@ -162,9 +162,15 @@ You can use any value between 1M and 10M, or leave it disconnected if you feel s
 In BOM it's indicated as Bourns 3362, this part is a THT trimmer from a previous version, correct part number is **Bourns 3364X-1-202E.**  
 I'm using a **Bourns 3314J-1-202E** which also fits well.
 
+#### R47, R49, R50, R66
+I've used 27.4k 0.1% but I'm not sure this is a good idea, I might want to check back in this later
+
 ### Capacitors
 For the ceramic capacitors insulator type, C0G is the best, X7R is also good. X5R is not as good as X7R. If it's possible avoid Y5V.
 Where voltage is not specified you can pick any voltage. 50V rating is better than higher.  A contributed list of which capacitors need higher voltages than the logic 3.3V would be appreciated.
+
+#### C23, C47
+I've used a higher value for these because it was what i had on hand (470uF), it should work the same, as they are just connected to the supply rail
 
 ### Diodes
 Please note that many times with diodes there is the same part from a different manufacturer listed with the first two letters.  
