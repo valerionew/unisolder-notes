@@ -200,7 +200,7 @@ This part is common with a suffix, such as "BAV199,215". It is the same part.
 60V TVS is just a 60V TVS. Any 60V TVS or close to this will do. For example:
 * 1.5KE62A
 
-#ICs
+###ICs
 
 #### U1 LM2675, R3 and R4
 Either the LM2675M-3.3 and the LM2675M-ADJ version can be used.   
