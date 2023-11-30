@@ -19,6 +19,7 @@ If you are reading this after i finished my project (so you are in the future, W
 	- [Power supply](#power-supply)
 	- [Earthing](#earthing)
 	- [OLED display configuration](#oled-display-configuration)
+ 	- [Rotary Encoder](#rotary-encoder)
 	- [Buzzer](#buzzer)
 	- [Sleep sensor](#sleep-sensor)
 	- [Calibration](#calibration)
@@ -85,6 +86,30 @@ There are some components that you'll have to remove from the BOM and some pads 
 * Ja to Jg are shorted  
 * Short, on the back side of the front pcb, the pins that have some soldermask free pads around, with the pads.
 * See the [U19 FAN5331 section](#u19-fan5331-r68) in this document, for picking the correct boost feedback resistor.
+
+### Rotary Encoder
+Author added Rotary Encoder functionality, that duplicated the functionality of the buttons, to adjust temperature/settings.  He posted in this [forum post](http://dangerousprototypes.com/forum/index.php?topic=7218.msg71747#msg71747) the details.
+
+To add the Rotary Encoder functionality, you will need to wire up your rotary encoder as pictured, depending on which version of Unisolder you have.
+
+<img align="center" src="/img/RC_Connections.jpg" width=500 />
+
+You will also need to change settings in a hidden menu that is not immediately obvious.
+* Go to the main settings menu (Hold down center button or rotary encoder switch)
+* When in the settings menu, Hold down center button or rotary encoder switch for 5 seconds.
+* Press and release center button to select the control options
+* Leave it alone for 5 seconds, and it will exit the menu saving the settings.
+
+Meaning of control options
+* **KEYS:** The normal 3 button control
+* **ENC-A-1PPD:** Encoder with Channel A event, 1 pulse per detent
+* **ENC-AB-2PPD:** Encoder with Channel A and Channel B event, 2 pulses per detent (One for A, One for B)
+* **ENC-A-2PPD:** Encoder with Channel A event, 2 pulses per detent
+* **ENC-AB-4PPD:** Encoder with Channel A and Channel B event, 4 pulses per detent (Two for A, Two for B)
+
+Just select what works best for you. The goal is to select a variant which leads to change of temperature/option with one up or one down per detent.
+
+Using a generic EC11 encoder, I used the ENC-A-2PPD option which worked great.  If the direction is not what you prefer, change the Buttons: +/- orientation in the normal settings menu.
 
 ### Buzzer
 Q20 and D17 are needed only if a DC active buzzer (internal oscillator) is used. The one specified in BOM, however, does not need them.
@@ -250,12 +275,13 @@ This part can be substituted with:
 * AD8628
 
 #### U19 FAN5331, R68
-This part can be substituted with LM2731, FAN5333A or FAN5333B. Please note that either version of FAN5333 have a different feedback voltage from each other and from the FAN5331. LM2731 has the same feedback voltage. This part is the boost converter for the OLED display. Different OLED displays need different voltages. Usually they can be either 9V or 12V. Check the voltage of your OLED and select R68 accordingly. R68 should be at least 1%.
+This part can be substituted with LM2731, FAN5333A or FAN5333B. Please note that either version of FAN5333 have a different feedback voltage from each other and from the FAN5331. LM2731 has the same feedback voltage, so can be used as a direct replacment. This part is the boost converter for the OLED display. Different OLED displays need different voltages. Usually they can be either 9V or 12V. Check the voltage of your OLED and select R68 accordingly. R68 should be at least 1%.
 
 Follows a table with values that should suit. These values are not tested (FAN5333B with 9V display is tested by me and working), proceed with caution and check the voltage prior to soldering the OLED.
 
 | IC                | R68 for 9V display | R68 for 12V display |
 |:------------------|:-------------------|:--------------------|
+| LM2731 (1.230V)   | 4.7k               | 3k                  |
 | FAN5331 (1.230V)  | 4.7k               | 3k                  |
 | FAN5333A (0.110V) | 340                | 249                 |
 | FAN5333B (0.315V) | 1k                 | 732                 |
